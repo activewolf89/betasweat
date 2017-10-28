@@ -37,11 +37,11 @@ app.use(function (err, req, res, next) {
 });
 
 route_app = require("./config/configRoute.js")
-// app.use(express.static(path.join(__dirname, 'build')));
+route_app(app)
+app.use(express.static(path.join(__dirname, 'build')));
 // app.get('/*', function (req, res) {
 //    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 //  });
-route_app(app)
 
 const port = 3001
 app.listen(port, ()=>{
