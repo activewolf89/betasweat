@@ -41,6 +41,7 @@ class Register extends Component{
         },
         url: '/user/add'
       }).then((res)=>{
+        console.log(res.data)
         sessionStorage.setItem('myToken', res.data.token);
         this.setState({
           redirectToProfile: true
@@ -181,7 +182,7 @@ class Register extends Component{
               this.state.formErrors.confirmPassword &&
                 <Col xs={12}>
                   <h5 style={{color:'red'}}>{this.state.formErrors.confirmPassword}</h5>
-                  
+
                 </Col>
             }
           </Row>
