@@ -1,0 +1,17 @@
+.notError {
+  width: 100%;
+
+}
+.error {
+  width: 100%;
+  border: 2px solid red;
+};
+.selected {
+  width: 100%;
+  border: 2px solid red;
+
+}
+.disabled {
+  background: gray;
+  opacity: .99;
+}
