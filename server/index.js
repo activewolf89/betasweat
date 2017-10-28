@@ -12,6 +12,7 @@ var schedule = require('node-schedule');
  var rule = new schedule.RecurrenceRule();
  var EmailNotify = require('./config/automaticEmail.js')
  var NotifyAdmin = require('./config/NotifyAdmin.js')
+ app.use(express.static(path.join(__dirname, 'build')));
 
 rule.hour = 6;
 rule.minute = 30;
@@ -22,13 +23,13 @@ var m = schedule.scheduleJob({hour: 12, minute: 0, dayOfWeek: 0}, NotifyAdmin);
 
 app.use(bodyParser());
 app.use(passport.initialize());
-app.use(function(req, res, next) { //allow cross origin requests
-    res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
-    res.header("Access-Control-Allow-Origin", "http://localhost:3001");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Credentials", true);
-    next();
-});
+// app.use(function(req, res, next) { //allow cross origin requests
+//     res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
+//     res.header("Access-Control-Allow-Origin", "http://localhost:3001");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     res.header("Access-Control-Allow-Credentials", true);
+//     next();
+// });
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
     res.status(401);
@@ -38,10 +39,9 @@ app.use(function (err, req, res, next) {
 
 route_app = require("./config/configRoute.js")
 route_app(app)
-app.use(express.static(path.join(__dirname, 'build')));
-// app.get('/*', function (req, res) {
-//    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-//  });
+app.get('/', function (req, res) {
+   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+ });
 
 const port = 3001
 app.listen(port, ()=>{
