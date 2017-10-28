@@ -228,6 +228,7 @@ app.get('/user/email/:emailAddress',(req,res)=>{
   UserRoute.retrieveEmail(req,res);
 })
 app.post('/user/add',(req,res)=>{
+  console.log('within add')
   UserRoute.add(req,res);
 })
 app.get('/user/weight/:userId',(req,res)=>{

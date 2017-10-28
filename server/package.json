@@ -6,7 +6,8 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "node index.js",
-    "client": "node start-client.js"
+    "client": "node start-client.js",
+    "start-prod": "NODE_ENV=production npm run server"
   },
   "keywords": [],
   "author": "",

@@ -277,18 +277,13 @@ add: function(req,res){
       user.bodyWeight.push(req.body.bodyWeight);
       user.setPassword(req.body.password);
       user.save((err)=>{
-        if(err){
-          res.status(401).json(err);
-
-        } else {
 
         var token;
         token = user.generateJwt();
-        res.status(200);
+        console.log(token)
           res.json({
           "token" : token
         });
-      }
       })
 
 

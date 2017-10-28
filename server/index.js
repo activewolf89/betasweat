@@ -39,7 +39,8 @@ app.use(function (err, req, res, next) {
 
 route_app = require("./config/configRoute.js")
 route_app(app)
-app.get('/', function (req, res) {
+app.get('/testing', function (req, res) {
+  console.log('_-----------------___________________-')
    res.sendFile(path.join(__dirname, 'build', 'index.html'));
  });
 
