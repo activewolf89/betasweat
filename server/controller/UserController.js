@@ -269,7 +269,7 @@ retrieveEmail: function(req,res){
     }
   })
 },
-add: function(req,res){
+register: function(req,res){
 
       var user = new User();
       user.name = req.body.name;
@@ -280,7 +280,6 @@ add: function(req,res){
 
         var token;
         token = user.generateJwt();
-        console.log(token)
           res.json({
           "token" : token
         });

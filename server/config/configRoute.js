@@ -20,7 +20,7 @@ var gfs = Grid(conn.db);
 ObjectId = require('mongodb').ObjectID;
 
 var storage = new GridFsStorage({
-  url: 'mongodb://localhost/Session',
+  url: 'mongodb://localhost/Session30',
   file: (req, file) => {
   if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/jpg' || file.mimetype === 'image/png') {
   } else {
@@ -227,9 +227,8 @@ app.post('/update/useremail/:userId',(req,res)=>{
 app.get('/user/email/:emailAddress',(req,res)=>{
   UserRoute.retrieveEmail(req,res);
 })
-app.post('/user/add',(req,res)=>{
-  console.log('within add')
-  UserRoute.add(req,res);
+app.post('/register',(req,res)=>{
+  UserRoute.register(req,res);
 })
 app.get('/user/weight/:userId',(req,res)=>{
   UserRoute.weight(req,res);

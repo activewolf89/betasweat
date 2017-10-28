@@ -39,9 +39,8 @@ class Register extends Component{
           password: this.state.password,
           confirmPassword: this.state.confirmPassword
         },
-        url: '/user/add'
+        url: '/register'
       }).then((res)=>{
-        console.log(res.data)
         sessionStorage.setItem('myToken', res.data.token);
         this.setState({
           redirectToProfile: true
