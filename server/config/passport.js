@@ -12,6 +12,7 @@ passport.use(new LocalStrategy({
       if (err) { return done(err); }
       // Return if user not found in database
       if (!user) {
+        console.log('no user')
         return done(null, false, {
           message: 'User not found'
         });

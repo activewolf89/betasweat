@@ -23,13 +23,7 @@ var m = schedule.scheduleJob({hour: 12, minute: 0, dayOfWeek: 0}, NotifyAdmin);
 
 app.use(bodyParser());
 app.use(passport.initialize());
-// app.use(function(req, res, next) { //allow cross origin requests
-//     res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
-//     res.header("Access-Control-Allow-Origin", "http://localhost:3001");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     res.header("Access-Control-Allow-Credentials", true);
-//     next();
-// });
+
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
     res.status(401);

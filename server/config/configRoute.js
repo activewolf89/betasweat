@@ -20,7 +20,7 @@ var gfs = Grid(conn.db);
 ObjectId = require('mongodb').ObjectID;
 
 var storage = new GridFsStorage({
-  url: 'mongodb://localhost/Session30',
+  url: 'mongodb://localhost/Session40',
   file: (req, file) => {
   if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/jpg' || file.mimetype === 'image/png') {
   } else {

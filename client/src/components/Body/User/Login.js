@@ -51,9 +51,9 @@
           this.setState({
             redirectToProfile: true
           })
-        }).catch((error: AxiosError)=>{
+        }).catch((error)=>{
           this.setState({
-            submitErrors: "Email/Password combination does not match"
+            submitErrors: `User/Password Combination Was Not Found`
           })
         })
 

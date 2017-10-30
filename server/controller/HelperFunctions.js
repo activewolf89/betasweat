@@ -19,7 +19,7 @@ module.exports = {
       from: "'BetaSweat'<sweatingbeta@gmail.com>",
       to: email,
       subject: 'Password Retrieval',
-      text: `click link to be create your new password http://localhost:3000/createpassword/${token}`
+      text: `click link to be create your new password, betasweat.com/createpassword/${token}`
     }
 
     transporter.sendMail(HelperOptions,(error,info)=>{
@@ -81,7 +81,7 @@ module.exports = {
       to: email,
       subject: 'You Have a scheduled session today',
       text: `You have scheduled to be reminded of the following sessions for today: ${arrayOfTemplateTitles}
-       click http://localhost:3000/sessions/add/ to be redirected to session`
+       click www.betasweat.com/sessions/add/ to be redirected to session`
     }
 
     transporter.sendMail(HelperOptions,(error,info)=>{
