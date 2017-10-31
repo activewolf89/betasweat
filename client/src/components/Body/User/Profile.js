@@ -47,9 +47,9 @@
       this.handlePhotoUpdate = this.handlePhotoUpdate.bind(this);
     }
     componentDidMount(){
-      var AuthStr = 'Bearer '+ LoggedIn.getToken()
-      axios.get('/profile',{'headers':{'Authorization':AuthStr}}).then((res)=>{
-
+      var payLoad = LoggedIn.getPayLoad();
+      axios.get('/getprofile/'+payLoad.email).then((res)=>{
+        console.log(res)
         if(res.data){
         return axios.get('/user/images/'+this.props.payLoad._id).then((responseImages)=>{
           if(responseImages.data.beforeImage){

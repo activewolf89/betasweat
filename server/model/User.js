@@ -45,6 +45,7 @@ UserRegSchema.methods.setPassword = function(password){
   this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64,"sha512").toString('hex');
 }
 UserRegSchema.methods.setPasswordToken = function(password){
+
   salt = crypto.randomBytes(16).toString('hex');
   resetPasswordToken = crypto.pbkdf2Sync(password, salt, 1000, 64,"sha512").toString('hex');
   return resetPasswordToken

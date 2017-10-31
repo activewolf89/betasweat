@@ -236,7 +236,7 @@ app.get('/user/weight/:userId',(req,res)=>{
 app.post('/user/login',(req,res)=>{
   UserRoute.login(req,res)
 })
-app.get('/profile', (req,res)=>{
+app.get('/getprofile/:email', (req,res)=>{
   UserRoute.show(req,res)
 })
 app.post('/user/update/bodyWeight/:userId',(req,res)=>{
